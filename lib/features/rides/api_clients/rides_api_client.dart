@@ -6,7 +6,6 @@ import 'package:imove_challenge/core/network/clients/abstract_user_access_token_
 import 'package:imove_challenge/core/network/extensions/api_response_nullable_extensions.dart';
 import 'package:result_dart/result_dart.dart';
 
-import 'package:imove_challenge/core/services/debug/log_service.dart';
 import 'abstract_rides_api_client.dart';
 import 'exceptions/rides_exceptions.dart';
 import 'models/rides_details_response_rm.dart';
@@ -37,7 +36,6 @@ class RidesApiClient implements IRidesApiClient {
   AsyncResult<RidesDetailsResponseRm> rideDetails(String? orderId) async {
     final result = await _httpClient.get(url: _urlBuilder.rideDetailsUrl(orderId));
     final response = result.getOrNull();
-    kLog.f('response: ${response?.data}');
 
     return response.isSuccessStatusCode
         ? Success(RidesDetailsResponseRm.fromJson(response?.data as Map<String, dynamic>))
