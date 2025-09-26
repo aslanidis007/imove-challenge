@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:imove_challenge/core/network/clients/abstract_user_access_token_http_client.dart';
 import 'package:imove_challenge/core/network/extensions/api_response_nullable_extensions.dart';
+import 'package:imove_challenge/core/services/debug/log_service.dart';
 import 'package:result_dart/result_dart.dart';
 
 import 'abstract_rides_api_client.dart';

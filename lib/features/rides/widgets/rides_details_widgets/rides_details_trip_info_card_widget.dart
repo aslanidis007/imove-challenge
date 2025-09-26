@@ -40,13 +40,29 @@ class RidesDetailsTripInfoCardWidget extends StatelessWidget {
               ],
             ),
             SizedBox(height: RidesDetailsConstants.largeSpacing),
-            Row(
+            Column(
               children: [
-                Icon(Icons.access_time, size: RidesDetailsConstants.timeIconSize),
-                SizedBox(width: RidesDetailsConstants.iconTextSpacing),
-                Text(
-                  DateTime.parse(actualPickUpDateTime).toString().substring(0, 16),
-                  style: appTheme.textTheme.bodyMedium,
+                Row(
+                  children: [
+                    Icon(Icons.access_time, size: RidesDetailsConstants.timeIconSize),
+                    SizedBox(width: RidesDetailsConstants.iconTextSpacing),
+                    Text('Pick up:\t'),
+                    Text(
+                      DateTime.parse(actualPickUpDateTime).toString().substring(0, 19),
+                      style: appTheme.textTheme.bodyMedium,
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Icon(Icons.access_time, size: RidesDetailsConstants.timeIconSize),
+                    SizedBox(width: RidesDetailsConstants.iconTextSpacing),
+                    Text('Drop off:\t'),
+                    Text(
+                      DateTime.parse(actualDropOffDateTime).toString().substring(0, 19),
+                      style: appTheme.textTheme.bodyMedium,
+                    ),
+                  ],
                 ),
               ],
             ),
