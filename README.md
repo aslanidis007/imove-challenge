@@ -1,16 +1,133 @@
-# imove_challenge
+# iMove Challenge Flutter App
 
-A new Flutter project.
+A Flutter application built with clean architecture patterns, featuring resilient API handling and modern state management.
 
-## Getting Started
+## Architecture Overview
 
-This project is a starting point for a Flutter application.
+This project follows **Clean Architecture** principles with the following layers:
 
-A few resources to get you started if this is your first Flutter project:
+### Core Architecture Components
+- **Repository Pattern**: Abstraction layer for data access
+- **Dependency Injection**: Using GetIt for service locator pattern
+- **Resilience Pattern**: Retry mechanisms and error handling
+- **BLoC Pattern**: State management with flutter_bloc
+- **Result Pattern**: Type-safe error handling with result_dart
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Key Design Decisions
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### 1. **Layered Repository Architecture**
+```
+IRidesRepository (Abstract)
+    ↓
+PreResilienceRidesRepository (Decorator)
+    ↓
+RidesRepository (Concrete)
+    ↓
+API Client
+```
+
+#### 2. **Resilience Executor**
+Implements retry logic and circuit breaker patterns for robust API communication using `dio_smart_retry`.
+
+#### 3. **Dependency Injection Strategy**
+- **GetIt Extensions**: Modular DI registration with extension methods
+- **Lazy Singleton**: Memory-efficient service instantiation
+
+#### 4. **State Management**
+- **flutter_bloc**: Reactive state management
+- **Equatable**: Value equality for state objects
+- **Result Dart**: Functional error handling
+
+#### 5. **Navigation**
+- **go_router**: Declarative routing with type safety
+
+#### 6. **Security & Storage**
+- **flutter_secure_storage**: Encrypted local storage
+- **Refresh Token Pipeline**: Automatic token refresh mechanism
+
+## Features
+
+- Clean Architecture implementation
+- Resilient API handling with retry mechanisms
+- Type-safe navigation with go_router
+- Secure token management
+- Responsive UI with flutter_screenutil
+- Comprehensive logging
+
+## Tech Stack
+
+| Category | Package | Purpose |
+|----------|---------|---------|
+| **State Management** | flutter_bloc | BLoC pattern implementation |
+| **Dependency Injection** | get_it, injectable | Service locator and DI |
+| **Networking** | dio, dio_smart_retry | HTTP client with retry logic |
+| **Error Handling** | result_dart | Functional error handling |
+| **Navigation** | go_router | Declarative routing |
+| **Storage** | flutter_secure_storage | Encrypted local storage |
+| **UI** | flutter_screenutil, pinput | Responsive UI and PIN input |
+| **Utilities** | equatable, logger, collection | Helper utilities |
+
+##  Getting Started
+
+### Prerequisites
+
+- Flutter 3.35.4
+- Dart 3.9.2
+- Cursor
+- Git
+
+### Installation
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/aslanidis007/imove-challenge.git
+cd imove-challenge
+```
+
+2. **Install dependencies**
+```bash
+flutter pub get
+```
+
+3. **Run the app**
+```bash
+flutter run
+```
+
+### Build Commands
+
+**Debug Build:**
+```bash
+flutter run --debug
+```
+
+
+### Environment Setup
+Create environment-specific configuration files for different build flavors.
+
+### API Configuration
+Configure base URLs and API endpoints in your environment files.
+
+## Testing
+
+```bash
+# Run all tests
+flutter test
+
+# Run with coverage
+flutter test --coverage
+```
+
+## Development Guidelines
+
+### Code Style
+- Follow Dart/Flutter style guide
+- Use meaningful variable and function names
+- Implement proper error handling
+- Write unit tests for business logic
+
+### Architecture Principles
+- Keep dependencies pointing inward
+- Use dependency injection for testability
+- Implement proper separation of concerns
+- Follow SOLID principles
