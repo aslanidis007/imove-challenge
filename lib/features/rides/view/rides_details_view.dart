@@ -73,7 +73,7 @@ class _RidesDetailsViewState extends State<RidesDetailsView> {
                         children: [
                           // Trip Info Card
                           RidesDetailsTripInfoCardWidget(
-                            destinationFormattedAddress: rideDetails.destination.formattedAddress,
+                            destinationFormattedAddress: rideDetails.destination?.formattedAddress,
                             actualPickUpDateTime: rideDetails.actualPickUpDateTime,
                             actualDropOffDateTime: rideDetails.actualDropOffDateTime,
                           ),
