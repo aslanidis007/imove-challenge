@@ -20,7 +20,6 @@ class PhoneNumberFieldWidget extends StatefulWidget {
 class _PhoneNumberFieldState extends State<PhoneNumberFieldWidget> {
   final TextEditingController _numberController = TextEditingController();
   final FocusNode _phoneNumberFocusNode = FocusNode();
-  final TextInputType _keyboardType = TextInputType.number;
   final getIt = GetIt.instance;
 
   @override
@@ -38,7 +37,6 @@ class _PhoneNumberFieldState extends State<PhoneNumberFieldWidget> {
           onTapOutside: (event) => FocusScope.of(context).unfocus(),
           controller: _numberController,
           focusNode: _phoneNumberFocusNode,
-          keyboardType: _keyboardType,
           inputFormatters: [FilteringTextInputFormatter.allow(RegExpHelper.phoneNumberRegExp)],
           enableSuggestions: false,
           onChanged: widget.onChanged,
