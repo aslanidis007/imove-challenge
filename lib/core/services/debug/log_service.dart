@@ -1,16 +1,11 @@
 import 'dart:developer';
 
 import 'package:logger/logger.dart';
+import 'package:flutter/foundation.dart';
 
 class MyPrinter extends PrettyPrinter {
   MyPrinter()
-    : super(
-        methodCount: 0,
-        errorMethodCount: 8,
-        lineLength: 120,
-        colors: true,
-        printEmojis: false,
-      );
+    : super(methodCount: 0, errorMethodCount: 8, lineLength: 120, colors: true, printEmojis: false);
 
   @override
   List<String> log(LogEvent event) {
@@ -28,21 +23,17 @@ class DeveloperConsoleOutput extends LogOutput {
   }
 }
 
-final Logger kLog = Logger(
-  printer: MyPrinter(),
-  output: DeveloperConsoleOutput(),
-);
+final Logger kLog = Logger(printer: MyPrinter(), output: DeveloperConsoleOutput());
 
 class TesterConsoleOutput extends LogOutput {
   @override
   void output(OutputEvent event) {
     final StringBuffer buffer = StringBuffer();
     event.lines.forEach(buffer.writeln);
-    print(buffer);
+    if (kDebugMode) {
+      print(buffer);
+    }
   }
 }
 
-final Logger kLogTester = Logger(
-  printer: MyPrinter(),
-  output: TesterConsoleOutput(),
-);
+final Logger kLogTester = Logger(printer: MyPrinter(), output: TesterConsoleOutput());
