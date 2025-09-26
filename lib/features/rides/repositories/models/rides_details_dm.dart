@@ -23,9 +23,8 @@ class RidesDetailsDm {
   final String paymentMethodId;
   final double estimatedDuration;
   final LocationDm origin;
-  final LocationDm destination;
+  final LocationDm? destination;
   final ServiceDm service;
-  final List<dynamic> stops;
   final String actualPickUpDateTime;
   final String actualDropOffDateTime;
   final Uint8List? serviceImageUrl;
@@ -55,7 +54,6 @@ class RidesDetailsDm {
     required this.origin,
     required this.destination,
     required this.service,
-    required this.stops,
     required this.actualPickUpDateTime,
     required this.actualDropOffDateTime,
     this.serviceImageUrl,
@@ -87,7 +85,6 @@ class RidesDetailsDm {
       origin: LocationDm.fromJson(json['origin']),
       destination: LocationDm.fromJson(json['destination']),
       service: ServiceDm.fromJson(json['service']),
-      stops: json['stops'] ?? [],
       actualPickUpDateTime: json['actualPickUpDateTime'],
       actualDropOffDateTime: json['actualDropOffDateTime'],
     );
@@ -148,7 +145,6 @@ class RidesDetailsDm {
       origin: origin ?? this.origin,
       destination: destination ?? this.destination,
       service: service ?? this.service,
-      stops: stops ?? this.stops,
       actualPickUpDateTime: actualPickUpDateTime ?? this.actualPickUpDateTime,
       actualDropOffDateTime: actualDropOffDateTime ?? this.actualDropOffDateTime,
       serviceImageUrl: serviceImageUrl ?? this.serviceImageUrl,
@@ -179,9 +175,8 @@ class RidesDetailsDm {
       'paymentMethodId': paymentMethodId,
       'estimatedDuration': estimatedDuration,
       'origin': origin.toJson(),
-      'destination': destination.toJson(),
+      'destination': destination?.toJson(),
       'service': service.toJson(),
-      'stops': stops,
       'actualPickUpDateTime': actualPickUpDateTime,
       'actualDropOffDateTime': actualDropOffDateTime,
     };

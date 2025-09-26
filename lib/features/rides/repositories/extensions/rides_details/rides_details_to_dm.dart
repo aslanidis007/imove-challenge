@@ -32,9 +32,8 @@ extension RidesDetailsRmToDm on RidesDetailsRm {
     paymentMethodId: paymentMethodId,
     estimatedDuration: estimatedDuration,
     origin: origin.toDm(),
-    destination: destination.toDm(),
+    destination: destination?.toDm(),
     service: service.toDm(),
-    stops: stops,
     actualPickUpDateTime: actualPickUpDateTime,
     actualDropOffDateTime: actualDropOffDateTime,
   );

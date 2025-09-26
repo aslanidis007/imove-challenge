@@ -4,7 +4,7 @@ import 'package:imove_challenge/core/theme/app_theme.dart';
 import 'package:imove_challenge/core/theme/theme_constants.dart';
 
 class RidesDetailsTripInfoCardWidget extends StatelessWidget {
-  final String destinationFormattedAddress;
+  final String? destinationFormattedAddress;
   final String actualPickUpDateTime;
   final String actualDropOffDateTime;
   const RidesDetailsTripInfoCardWidget({
@@ -30,12 +30,13 @@ class RidesDetailsTripInfoCardWidget extends StatelessWidget {
               children: [
                 Icon(Icons.location_on, size: RidesDetailsConstants.locationIconSize),
                 SizedBox(width: RidesDetailsConstants.iconTextSpacing),
-                Expanded(
-                  child: Text(
-                    destinationFormattedAddress,
-                    style: TextStyle(fontWeight: FontWeight.w500),
+                if (destinationFormattedAddress != null)
+                  Expanded(
+                    child: Text(
+                      destinationFormattedAddress!,
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    ),
                   ),
-                ),
               ],
             ),
             SizedBox(height: RidesDetailsConstants.largeSpacing),

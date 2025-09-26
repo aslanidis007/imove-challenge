@@ -1,3 +1,5 @@
+import 'package:imove_challenge/core/constants/empty_string.dart';
+
 class RidesDetailsRm {
   final String? notes;
   final CarRm? car;
@@ -21,9 +23,8 @@ class RidesDetailsRm {
   final String paymentMethodId;
   final double estimatedDuration;
   final LocationRm origin;
-  final LocationRm destination;
+  final LocationRm? destination;
   final ServiceRm service;
-  final List<dynamic> stops;
   final String actualPickUpDateTime;
   final String actualDropOffDateTime;
 
@@ -50,9 +51,8 @@ class RidesDetailsRm {
     required this.paymentMethodId,
     required this.estimatedDuration,
     required this.origin,
-    required this.destination,
+    this.destination,
     required this.service,
-    required this.stops,
     required this.actualPickUpDateTime,
     required this.actualDropOffDateTime,
   });
@@ -76,14 +76,13 @@ class RidesDetailsRm {
       type: json['type'],
       isPreOrder: json['isPreOrder'] ?? false,
       status: json['status'],
-      polyline: json['polyline'],
+      polyline: json['polyline'] ?? emptyString,
       mapsOverviewUrl: json['mapsOverviewUrl'],
       paymentMethodId: json['paymentMethodId'],
       estimatedDuration: json['estimatedDuration']?.toDouble() ?? 0.0,
       origin: LocationRm.fromJson(json['origin']),
-      destination: LocationRm.fromJson(json['destination']),
+      destination: json['destination'] != null ? LocationRm.fromJson(json['destination']) : null,
       service: ServiceRm.fromJson(json['service']),
-      stops: json['stops'] ?? [],
       actualPickUpDateTime: json['actualPickUpDateTime'],
       actualDropOffDateTime: json['actualDropOffDateTime'],
     );
@@ -113,9 +112,8 @@ class RidesDetailsRm {
       'paymentMethodId': paymentMethodId,
       'estimatedDuration': estimatedDuration,
       'origin': origin.toJson(),
-      'destination': destination.toJson(),
+      'destination': destination?.toJson(),
       'service': service.toJson(),
-      'stops': stops,
       'actualPickUpDateTime': actualPickUpDateTime,
       'actualDropOffDateTime': actualDropOffDateTime,
     };
