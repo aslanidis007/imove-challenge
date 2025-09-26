@@ -1,0 +1,1 @@
+ /Users/aslanidis/Desktop/imove-challenge/.dart_tool/flutter_build/03ece4f38cb02a36ae78a908426f60e2/native_assets.json: 
