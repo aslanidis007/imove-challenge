@@ -128,6 +128,9 @@ flutter test
 
 # Run with coverage
 flutter test --coverage
+
+# Run specific category
+flutter test test/folder_name/file_name
 ```
 
 ## Development Guidelines
