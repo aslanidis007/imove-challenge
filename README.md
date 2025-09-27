@@ -110,6 +110,18 @@ Configure base URLs and API endpoints in your environment files.
 
 ## Testing
 
+1. **Client_test**
+    # API clients and network functionality
+2. **constants_test**
+    # Application constants and configuration
+3. **jwt_parser_test**
+    # JWT token parsing and validation
+4. **router_test**
+    # Navigation and routing logic
+5. **utils_test**
+    # String extensions - build url logic
+
+
 ```bash
 # Run all tests
 flutter test
