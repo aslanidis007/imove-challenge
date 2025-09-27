@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imove_challenge/core/theme/app_theme.dart';
 import 'package:imove_challenge/core/theme/colors.dart';
 import 'package:imove_challenge/core/theme/theme_constants.dart';
 
@@ -19,7 +20,7 @@ class ToLocationWidget extends StatelessWidget {
         Expanded(
           child: Text(
             'To: $destinationFormattedAddress',
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+            style: appTheme.textTheme.bodyMedium?.copyWith(
               color: AppColors.secondary.withValues(alpha: RideUIConstants.secondaryTextOpacity),
             ),
             maxLines: 1,

@@ -20,7 +20,7 @@ class FromLocationWidget extends StatelessWidget {
         Expanded(
           child: Text(
             'From: $originFormattedAddress',
-            style: appTheme.textTheme.bodySmall?.copyWith(
+            style: appTheme.textTheme.bodyMedium?.copyWith(
               color: AppColors.secondary.withValues(alpha: RideUIConstants.secondaryTextOpacity),
             ),
             maxLines: 1,
