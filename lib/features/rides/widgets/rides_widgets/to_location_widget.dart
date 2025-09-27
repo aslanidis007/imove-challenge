@@ -13,7 +13,7 @@ class ToLocationWidget extends StatelessWidget {
         Container(
           width: RideUIConstants.locationDotSize,
           height: RideUIConstants.locationDotSize,
-          decoration: const BoxDecoration(color: AppColors.error, shape: BoxShape.circle),
+          decoration: const BoxDecoration(color: AppColors.blue, shape: BoxShape.circle),
         ),
         SizedBox(width: RideUIConstants.locationDotSpacing),
         Expanded(
