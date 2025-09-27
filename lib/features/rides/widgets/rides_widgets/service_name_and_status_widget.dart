@@ -50,7 +50,7 @@ class ServiceNameAndStatusWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(RideUIConstants.statusBadgeRadius),
               ),
               child: Text(
-                status == 1000 ? 'Completed' : 'Status: $status',
+                status == 1000 ? 'Completed' : 'Cancelled',
                 style: TextStyle(
                   color: status == 1000 ? AppColors.success : AppColors.statusPending,
                   fontSize: RideUIConstants.statusBadgeFontSize,
